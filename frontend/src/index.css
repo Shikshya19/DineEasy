@@ -1,0 +1,27 @@
+:root {
+    --color1: #f0f2dd;
+    --color2: #a28656;
+    --color3: #b19c6c;
+    --color4: #c1b282;
+    --color5: #d1c999;
+}
+.form-container {
+    width: 400px;
+    /* background-color: var(--color1); */
+    border: 1px solid var(--color1);
+
+    & h2 {
+        color: #fff;
+    }
+    & button {
+        color: var(--color1);
+        background-color: var(--color2);
+    } 
+    & button:hover {
+        color: var(--color1);
+        background-color: var(--color3);
+    }
+}
+.navbar {
+    background-color: var(--color1) !important;
+}
