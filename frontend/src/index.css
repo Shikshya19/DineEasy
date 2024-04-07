@@ -1,0 +1,320 @@
+:root {
+    --color1: #f0f2dd;
+    --color2: #a28656;
+    --color3: #b19c6c;
+    --color4: #c1b282;
+    --color5: #d1c999;
+}
+.form-container {
+    width: 400px;
+    /* background-color: var(--color1); */
+    border: 1px solid var(--color1);
+
+    & h2 {
+        color: #fff;
+    }
+    & button {
+        color: var(--color1);
+        background-color: var(--color2);
+    } 
+    & button:hover {
+        color: var(--color1);
+        background-color: var(--color3);
+    }
+}
+.navbar {
+    background-color: var(--color1) !important;
+}
+.centerText{
+    text-align: center;
+}
+.row {
+    margin-bottom: 10rem; /* Adjust the value to set the desired gap */
+}
+.btn-primary {
+    /* width: 300px;
+    height: 200px; */
+    /* Add any other styles as needed */
+}
+
+.dashboard {
+    background: url("assets\img\about.jpg") center center;
+    background-size: cover;
+    position: relative;
+    padding: 80px 0;
+  }
+
+  .dashboard:before {
+    content: "";
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  @media (min-width: 1024px) {
+    .dashboard {
+      background-attachment: fixed;
+    }
+  }
+
+.table{
+    display: flex;
+}
+
+.table-card {
+    background-color: rgb(236, 236, 236);
+    border-radius: 10px;
+}
+
+
+
+.aboutus {
+    background: url("assets\img\about-bg.jpg") center center;
+    background-size: cover;
+    position: relative;
+    padding: 80px 0;
+  }
+  
+  .aboutus:before {
+    content: "";
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  
+  
+  .aboutus .content {
+    position: relative;
+  }
+  
+  .aboutus .content h3 {
+    font-weight: 600;
+    font-size: 26px;
+  }
+  
+
+  
+  @media (min-width: 1024px) {
+    .aboutus {
+      background-attachment: fixed;
+    }
+  }
+
+  .menu #menu-flters {
+    padding: 0;
+    margin: 0 auto 0 auto;
+    list-style: none;
+    text-align: center;
+    border-radius: 50px;
+  }
+  
+  .menu #menu-flters li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 12px 10px 12px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    color: #fff;
+    margin-bottom: 10px;
+    transition: all ease-in-out 0.3s;
+    border-radius: 50px;
+    font-family: "Playfair Display", serif;
+  }
+  
+  .menu #menu-flters li:hover,
+  .menu #menu-flters li.filter-active {
+    color: #cda45e;
+  }
+  
+  .menu #menu-flters li:last-child {
+    margin-right: 0;
+  }
+  
+  .menu .menu-item {
+    margin-top: 50px;
+  }
+  
+  .menu .menu-img {
+    width: 70px;
+    border-radius: 50%;
+    float: left;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .menu .menu-content {
+    margin-left: 85px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+  
+  .menu .menu-content::after {
+    content: "......................................................................" "...................................................................." "....................................................................";
+    position: absolute;
+    left: 20px;
+    right: 0;
+    top: -4px;
+    z-index: 1;
+    color: #bab3a6;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  }
+  
+  .menu .menu-content a {
+    padding-right: 10px;
+    background: #1a1814;
+    position: relative;
+    z-index: 3;
+    font-weight: 700;
+    color: white;
+    transition: 0.3s;
+  }
+  
+  .menu .menu-content a:hover {
+    color: #cda45e;
+  }
+  
+  .menu .menu-content span {
+    background: #1a1814;
+    position: relative;
+    z-index: 3;
+    padding: 0 10px;
+    font-weight: 600;
+    color: #cda45e;
+  }
+  
+  .menu .menu-ingredients {
+    margin-left: 85px;
+    font-style: italic;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+
+  #home {
+    width: 100%;
+    height: 100vh;
+    background: url("assets\img\about-bg.jpg") top center;
+    background-size: cover;
+    position: relative;
+    padding: 0;
+  }
+  
+
+  
+  #home .container {
+    padding-top: 110px;
+  }
+  
+  @media (max-width: 992px) {
+    #home .container {
+      padding-top: 98px;
+    }
+  }
+  
+  #home h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  #home h1 span {
+    color: #000000;
+  }
+  
+  #home h2 {
+    color: #eee;
+    margin-bottom: 10px 0 0 0;
+    font-size: 22px;
+  }
+  
+  #home .btns {
+    margin-top: 30px;
+  }
+  
+  #home .btn-menu,
+  #home .btn-book {
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: 0.3s;
+    line-height: 1;
+    color: white;
+    border: 2px solid #cda45e;
+  }
+  
+  #home .btn-menu:hover,
+  #home .btn-book:hover {
+    background: #cda45e;
+    color: #fff;
+  }
+  
+  #home .btn-book {
+    margin-left: 15px;
+  }
+  
+  
+  @media (min-width: 1600px) {
+    #home {
+      background-attachment: fixed;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    #home .play-btn {
+      margin-top: 30px;
+    }
+  }
+  
+  @media (max-height: 500px) {
+    #home {
+      height: auto;
+    }
+  
+    #home .container {
+      padding-top: 130px;
+      padding-bottom: 60px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    #home h1 {
+      font-size: 28px;
+      line-height: 36px;
+    }
+  
+    #home h2 {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+  
+  @keyframes pulsate-btn {
+    0% {
+      transform: scale(0.6, 0.6);
+      opacity: 1;
+    }
+  
+    100% {
+      transform: scale(1, 1);
+      opacity: 0;
+    }
+  }
+
+
+  
