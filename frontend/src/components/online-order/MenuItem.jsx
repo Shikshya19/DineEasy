@@ -1,4 +1,7 @@
-export default function MenuItem({ item }) {
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../store/authContext";
+
+export default function MenuItem({ item, handleAdd }) {
   return (
     <div className="border m-2 rounded-2 p-2">
       <div className="d-flex align-items-center">
@@ -13,7 +16,12 @@ export default function MenuItem({ item }) {
           <h2 className="m-0 h5">{item.itemName}</h2>
           <h3 className="m-0 h6">Rs.{item.price}</h3>
           <div className="d-flex justify-content-end">
-            <button className="btn btn-primary">Add</button>
+            <button
+              className="btn btn-primary"
+              onClick={() => handleAdd(item._id)}
+            >
+              Add
+            </button>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-export default function TableCard({ table }) {
+export default function TableCard({ table, handleBook }) {
   return (
     <div className="table-card col-md-3 m-2 p-3 ">
       <h3 className="h5 my-2">
@@ -13,7 +13,10 @@ export default function TableCard({ table }) {
         <p className="mb-1">Status: {table.booked ? "Booked" : "Available"}</p>
         {!table.booked && (
           <div>
-            <button className="btn btn-primary float-end">
+            <button
+              className="btn btn-primary float-end"
+              onClick={() => handleBook(table._id)}
+            >
               <i className="fa-solid fa-file-circle-plus me-1"></i>Book
             </button>
           </div>

@@ -16,6 +16,13 @@ export default function ManageStaffs() {
     password: "",
     post: "",
   });
+  const [editData, setEddData] = useState({
+    fullname: "",
+    username: "",
+    email: "",
+    phone: "",
+    post: "",
+  });
 
   const handleAdd = (e) => {
     e.preventDefault();

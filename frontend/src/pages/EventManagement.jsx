@@ -1,5 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 export default function EventManagement() {
+  const navigate = useNavigate();
   return (
     <>
       <section id="specials" class="specials">
@@ -62,6 +64,12 @@ export default function EventManagement() {
                         Cupiditate officiis placeat necessitatibus quo
                         repellendus nihil odio sunt?
                       </p>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => navigate("/tableReservation")}
+                      >
+                        Book for birthday
+                      </button>
                     </div>
                     <div class="col-lg-4 text-center order-1 order-lg-2">
                       <img
@@ -90,6 +98,12 @@ export default function EventManagement() {
                         ipsum dignissimos quisquam laudantium soluta nemo rem
                         sit? Fuga, placeat.
                       </p>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => navigate("/tableReservation")}
+                      >
+                        Book for private party
+                      </button>
                     </div>
                     <div class="col-lg-4 text-center order-1 order-lg-2">
                       <img
@@ -117,6 +131,12 @@ export default function EventManagement() {
                         nemo maiores deserunt dicta enim ullam eius labore
                         adipisci blanditiis illo quos ab quisquam rem!
                       </p>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => navigate("/tableReservation")}
+                      >
+                        Book for wedding
+                      </button>
                     </div>
                     <div class="col-lg-4 text-center order-1 order-lg-2">
                       <img
@@ -143,6 +163,12 @@ export default function EventManagement() {
                         cupiditate incidunt facere quidem iste et error
                         veritatis maxime. Optio a non omnis asperiores.
                       </p>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => navigate("/tableReservation")}
+                      >
+                        Book for tendor
+                      </button>
                     </div>
                     <div class="col-lg-4 text-center order-1 order-lg-2">
                       <img
@@ -170,6 +196,12 @@ export default function EventManagement() {
                         soluta aut officia fugit doloribus maiores voluptates
                         dignissimos necessitatibus.
                       </p>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => navigate("/tableReservation")}
+                      >
+                        Book for special
+                      </button>
                     </div>
                     <div class="col-lg-4 text-center order-1 order-lg-2">
                       <img

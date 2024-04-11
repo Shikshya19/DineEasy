@@ -7,7 +7,9 @@ const app = express();
 const authRoute = require("./routes/auth-router");
 const staffRoute = require("./routes/staff-router");
 const tableRoute = require("./routes/table-router");
+const bookingRoute = require("./routes/booking-router");
 const menuRoute = require("./routes/menu-router");
+const orderRoute = require("./routes/order-router");
 const connectDb = require("./utils/db");
 
 const PORT = process.env.PORT;
@@ -18,9 +20,11 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/api/auth", authRoute);
+app.use("/api/booking", bookingRoute);
 app.use("/api/table", tableRoute);
 app.use("/api/menu", menuRoute);
 app.use("/api/staffs", staffRoute);
+app.use("/api/orders", orderRoute);
 
 connectDb().then(() => {
   app.listen(PORT, () => {
