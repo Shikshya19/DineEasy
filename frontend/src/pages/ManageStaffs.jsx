@@ -3,10 +3,12 @@ import Form from "react-bootstrap/Form";
 import { AuthContext } from "../store/authContext";
 import { toast } from "react-toastify";
 import axios from "axios";
+import MyModal from "../components/MyModal";
 
 export default function ManageStaffs() {
   const [loading, setLoading] = useState(true);
   const [staffs, setstaffs] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   const { myAxios } = useContext(AuthContext);
   const [addData, setAddData] = useState({
     fullname: "",
@@ -16,7 +18,7 @@ export default function ManageStaffs() {
     password: "",
     post: "",
   });
-  const [editData, setEddData] = useState({
+  const [editData, setEditData] = useState({
     fullname: "",
     username: "",
     email: "",
@@ -45,6 +47,10 @@ export default function ManageStaffs() {
     setAddData({ ...addData, [e.target.name]: e.target.value });
   };
 
+  const handleEditChange = (e) => {
+    setEditData({ ...editData, [e.target.name]: e.target.value });
+  };
+
   const fetchstaffs = () => {
     setLoading(true);
 
@@ -63,6 +69,78 @@ export default function ManageStaffs() {
 
   return (
     <div className="container">
+      <MyModal
+        show={showModal}
+        handleClose={() => setShowModal(false)}
+        handleSubmit={() => alert("Submitted")}
+      >
+        <form onSubmit={handleAdd}>
+          <Form.Group className="my-3">
+            <Form.Label htmlFor="fullname">Full Name:</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter Full Name"
+              id="fullname"
+              name="fullname"
+              value={editData.fullname}
+              onChange={handleEditChange}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="my-3">
+            <Form.Label htmlFor="username">Username:</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter Username"
+              id="username"
+              name="username"
+              value={editData.username}
+              onChange={handleEditChange}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="my-3">
+            <Form.Label htmlFor="email">Email:</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter Email"
+              id="email"
+              name="email"
+              value={editData.email}
+              onChange={handleEditChange}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="my-3">
+            <Form.Label htmlFor="phone">Phone:</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter Phone Number"
+              id="phone"
+              name="phone"
+              value={editData.phone}
+              onChange={handleEditChange}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="my-3">
+            <Form.Label htmlFor="post">Post:</Form.Label>
+            <Form.Control
+              as="select"
+              id="post"
+              name="post"
+              value={editData.post}
+              onChange={handleEditChange}
+              required
+            >
+              <option value="">Select Post</option>
+              <option value="Waiter">Waiter</option>
+              <option value="Chef">Chef</option>
+              <option value="Cashier">Cashier</option>
+            </Form.Control>
+          </Form.Group>
+        </form>
+      </MyModal>
       <div className="row mb-3">
         {/* Add staff form */}
         <div className="col-md-4 m-auto mt-3">
@@ -155,7 +233,24 @@ export default function ManageStaffs() {
           <h3>Staffs List</h3>
           <ul>
             {staffs.map((staff) => (
-              <li key={staff._id}>{staff.user.fullname}</li>
+              <li key={staff._id} className="my-2">
+                {staff.user.fullname}
+                <button
+                  className="btn btn-primary mx-2"
+                  onClick={() => {
+                    setEditData({
+                      fullname: staff.user.fullname,
+                      username: staff.user.username,
+                      email: staff.user.email,
+                      phone: staff.user.phone,
+                      post: staff.user.post,
+                    });
+                    setShowModal(true);
+                  }}
+                >
+                  edit
+                </button>
+              </li>
             ))}
           </ul>
         </div>

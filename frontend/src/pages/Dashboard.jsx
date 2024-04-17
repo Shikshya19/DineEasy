@@ -11,47 +11,62 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   return (
-    <>
-      <section id="dashboard" class="dashboard"></section>
-      <h1 className="centerText">Dashboard</h1>
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            {/* Use a callback function to call navigate */}
+    <div className="dashboard-container">
+      <header className="dashboard-header">
+        <h1 className="dashboard-title">Restaurant Dashboard</h1>
+      </header>
+
+      <main className="dashboard-content">
+        <section className="dashboard-section">
+          <div className="dashboard-item">
             <div
-              className="btn btn-primary"
+              className="dashboard-item-content"
               onClick={() => navigate("/onlineOrder")}
             >
-              Online Order
+              <img
+                src="..\src\assets\img\order.jpg"
+                alt="Online Order"
+                className="dashboard-item-image"
+              />
+              <span className="dashboard-item-label">Online Order</span>
             </div>
           </div>
-          <div className="col">
+          <div className="dashboard-item">
             <div
-              className="btn btn-primary"
+              className="dashboard-item-content"
               onClick={() => navigate("/tableReservation")}
             >
-              Table Reservation
+              <img
+                src="..\src\assets\img\table.png"
+                alt="Table Reservation"
+                className="dashboard-item-image"
+              />
+              <span className="dashboard-item-label">Table Reservation</span>
             </div>
           </div>
-          <div className="col">
+          <div className="dashboard-item">
             <div
-              className="btn btn-primary"
+              className="dashboard-item-content"
               onClick={() => navigate("/eventmanagement")}
             >
-              Eevent Mamangement
+              <img
+                src="..\src\assets\img\events.png"
+                alt="Event Management"
+                className="dashboard-item-image"
+              />
+              <span className="dashboard-item-label">Event Management</span>
             </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <input
-              className="btn btn-primary"
-              type="button"
-              value="Customer Care"
-            />
+        </section>
+
+        <section className="dashboard-section">
+          <div className="dashboard-item">
+            <div className="dashboard-item-content">
+              <button className="dashboard-item-button">Customer Care</button>
+            </div>
           </div>
-        </div>
-      </div>
-    </>
+        </section>
+      </main>
+    </div>
   );
 }

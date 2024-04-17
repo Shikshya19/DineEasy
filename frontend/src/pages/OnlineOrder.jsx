@@ -3,11 +3,12 @@ import { AuthContext } from "../store/authContext";
 import MenuItem from "../components/online-order/MenuItem";
 import OrderItem from "../components/online-order/OrderItem";
 
-export default function OnlineOrder() {
+const OnlineOrder = () => {
   const [menu, setMenu] = useState([]);
   const [order, setOrder] = useState([]);
   const [loading, setLoading] = useState(true);
   const { myAxios } = useContext(AuthContext);
+
   const fetchMenu = () => {
     setLoading(true);
     myAxios
@@ -18,6 +19,7 @@ export default function OnlineOrder() {
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
   };
+
   const fetchOrder = () => {
     setLoading(true);
     myAxios
@@ -26,6 +28,7 @@ export default function OnlineOrder() {
       .catch((err) => console.error(err))
       .finally(() => setLoading(false));
   };
+
   const handleAdd = (item) => {
     setLoading(true);
     myAxios
@@ -34,6 +37,7 @@ export default function OnlineOrder() {
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   };
+
   const handleRemove = (orderID) => {
     setLoading(true);
     myAxios
@@ -41,32 +45,29 @@ export default function OnlineOrder() {
       .then((response) => fetchOrder())
       .catch((err) => console.log(err));
   };
+
   useEffect(() => {
     fetchMenu();
     fetchOrder();
   }, []);
 
   if (loading) return <p>Loading...</p>;
+
   return (
-    <>
-      <h1 className="centerText m-3 mb-4">Menu Info</h1>
-      <div className="row">
-        <div className="col-md-3">
-          {/* Menu */}
-          <div className="p-2 px-3">
-            <h2>Menu</h2>
+    <div className="online-order-container">
+      <h1 className="online-order-title">Online Order</h1>
+      <div className="online-order-content">
+        <div className="online-order-menu">
+          <h2 className="online-order-menu-title">Menu</h2>
+          <div className="online-order-menu-items">
             {menu.map((item, index) => (
               <MenuItem key={index} item={item} handleAdd={handleAdd} />
             ))}
           </div>
         </div>
-        <div
-          className="col-md-9"
-          style={{ backgroundColor: "rgb(229 229 229)" }}
-        >
-          {/* Order */}
-          <div className="p-2 px-3">
-            <h2 className="text-center">Order</h2>
+        <div className="online-order-order">
+          <h2 className="online-order-order-title">Order</h2>
+          <div className="online-order-order-items">
             {order.length > 0 ? (
               order.map((item, index) => (
                 <OrderItem
@@ -77,22 +78,20 @@ export default function OnlineOrder() {
                 />
               ))
             ) : (
-              <p className="text-center">No items</p>
+              <p className="online-order-order-empty">No items</p>
             )}
-            <div
-              className="border m-2 rounded-2 p-2"
-              style={{ backgroundColor: "rgb(255 255 255 / 58%)" }}
-            >
-              <p className="m-0 text-end h5">
-                Total: {order.reduce((total, item) => total + item.total, 0)}
-              </p>
-            </div>
-            <div className="d-flex justify-content-end">
-              <button className="btn btn-primary me-2 mt-3">Place order</button>
-            </div>
           </div>
+          <div className="online-order-order-total">
+            <p className="online-order-order-total-label">Total:</p>
+            <p className="online-order-order-total-amount">
+              Rs.{order.reduce((total, item) => total + item.total, 0)}
+            </p>
+          </div>
+          <button className="online-order-order-button">Place Order</button>
         </div>
       </div>
-    </>
+    </div>
   );
-}
+};
+
+export default OnlineOrder;

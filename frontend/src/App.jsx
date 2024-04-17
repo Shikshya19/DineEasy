@@ -15,6 +15,7 @@ import ManageTables from "./pages/ManageTables";
 import ManageStaffs from "./pages/ManageStaffs";
 import ManageMenu from "./pages/ManageMenu";
 import EventManagement from "./pages/EventManagement";
+import Customer from "./pages/Customer";
 
 function App() {
   return (
@@ -43,6 +44,10 @@ function App() {
           <Route
             path="/admin/manage-staffs"
             element={<PrivateRoute element={<ManageStaffs />} />}
+          ></Route>
+          <Route
+            path="/customer"
+            element={<PrivateRoute element={<Customer />} />}
           ></Route>
         </Routes>
       </BrowserRouter>
