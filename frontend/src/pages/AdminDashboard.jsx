@@ -21,6 +21,15 @@ export default function AdminDashboard() {
           </div>
           <div className="admin-dashboard-item">
             <Link
+              to="/admin/add-staff"
+              className="admin-dashboard-item-content"
+            >
+              <i className="fa fa-plus admin-dashboard-item-icon"></i>
+              <span className="admin-dashboard-item-label">Add Staffs</span>
+            </Link>
+          </div>
+          <div className="admin-dashboard-item">
+            <Link
               to="/admin/manage-staffs"
               className="admin-dashboard-item-content"
             >
@@ -35,6 +44,26 @@ export default function AdminDashboard() {
             >
               <i className="fas fa-utensils admin-dashboard-item-icon"></i>
               <span className="admin-dashboard-item-label">Manage Menu</span>
+            </Link>
+          </div>
+          <div className="admin-dashboard-item">
+            <Link
+              to="/admin/manage-orders"
+              className="admin-dashboard-item-content"
+            >
+              <i className="fa-solid fa-bell-concierge admin-dashboard-item-icon"></i>
+              <span className="admin-dashboard-item-label">Manage Orders</span>
+            </Link>
+          </div>
+          <div className="admin-dashboard-item">
+            <Link
+              to="/admin/tablereservation"
+              className="admin-dashboard-item-content"
+            >
+              <i className="fa-solid fa-bookmark admin-dashboard-item-icon"></i>
+              <span className="admin-dashboard-item-label">
+                View Reservations
+              </span>
             </Link>
           </div>
         </section>

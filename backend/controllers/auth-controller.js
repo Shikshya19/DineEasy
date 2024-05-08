@@ -1,8 +1,11 @@
+const constants = require("../constants");
 const User = require("../models/user-model");
+const Staff = require("../models/staff-model");
 
 const register = async (req, res) => {
   try {
     const { fullname, username, email, phone, password } = req.body;
+    console.log(fullname, username, email, phone, password);
     if ([fullname, username, email, phone, password].some((field) => !field)) {
       return res.status(400).json({ msg: "All fields are required" });
     }
@@ -60,8 +63,13 @@ const login = async (req, res) => {
   }
 };
 const getUser = async (req, res) => {
+  const user = req.user.toObject();
   try {
-    res.status(200).json(req.user);
+    if (user.role === constants.user.roles.STAFF) {
+      const staff = await Staff.findOne({ user: user._id });
+      user.staffPost = staff.post;
+    }
+    res.status(200).json(user);
   } catch (error) {
     console.log(error);
   }

@@ -10,7 +10,7 @@ export default function Register() {
 
   const [registerData, setRegisterData] = useState({
     fullname: "",
-    registerDataname: "",
+    username: "",
     email: "",
     phone: "",
     password: "",
@@ -18,11 +18,10 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log("asd");
       const response = await fetch("http://localhost:8000/api/auth/register", {
         method: "POST",
         headers: {
-          "content-type": "applicaftion/json",
+          "content-type": "application/json",
         },
         body: JSON.stringify(registerData),
       });
@@ -66,15 +65,15 @@ export default function Register() {
           </div>
           <div className="form-floating mb-3">
             <input
-              name="registerDataname"
+              name="username"
               onChange={handleChange}
-              value={registerData.registerDataname}
+              value={registerData.username}
               type="text"
               className="form-control"
               id="floatingInput"
-              placeholder="your_registerDataname"
+              placeholder="your_username"
             />
-            <label htmlFor="floatingInput">registerDataname</label>
+            <label htmlFor="floatingInput">Username</label>
           </div>
           <div className="form-floating mb-3">
             <input

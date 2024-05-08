@@ -1,6 +1,10 @@
-export default constants = {
+const constants = {
   staff: {
-    posts: {},
+    posts: {
+      WAITER: "Waiter",
+      CHEF: "Chef",
+      CASHIER: "Cashier",
+    },
   },
   user: {
     roles: {
@@ -10,3 +14,5 @@ export default constants = {
     },
   },
 };
+
+export default constants;

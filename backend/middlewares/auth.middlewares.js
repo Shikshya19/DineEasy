@@ -20,3 +20,10 @@ exports.isAdmin = async (req, res, next) => {
   }
   next();
 };
+
+exports.onlyCustomer = async (req, res, next) => {
+  if (req.user.role != constants.user.roles.CUSTOMER) {
+    return res.status(403).json({ message: "Unauthorized request" });
+  }
+  next();
+};

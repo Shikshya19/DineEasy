@@ -17,32 +17,33 @@ export default function AboutUs() {
             <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content text-white">
               <h3>About Us</h3>
               <p class="fst-italic text-white">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Dine Easy (Restaurant Management and Reservation System) is a
+                project that allows users to make online table reservations.
+                This system allows customers and restaurant owners to track the
+                food orders and reservation process. The project is divided into
+                two types: Customer and Administration. In the customer section,
+                the users can reserve tables, see their order progression, order
+                online, view the menu, and customize their menu. Whereas, in the
+                admin section, they can view inventory management, staff
+                records, online orders, table reservation records, and manage
+                staff.
               </p>
               <ul>
-                <li>
-                  <i class="bi bi-check-circle"></i> Ullamco laboris nisi ut
-                  aliquip ex ea commodo consequat.
-                </li>
-                <li>
-                  <i class="bi bi-check-circle text-white"></i> Duis aute irure
-                  dolor in reprehenderit in voluptate velit.
-                </li>
-                <li>
-                  <i class="bi bi-check-circle text-white"></i> Ullamco laboris
-                  nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                  in reprehenderit in voluptate trideta storacalaperda mastiro
-                  dolore eu fugiat nulla pariatur.
-                </li>
+                <p>
+                  <i class="bi bi-check-circle text-white"></i>Users are
+                  required to register with their details to access the
+                  application's features. Upon completing the registration
+                  process, customers can utilize functions such as online
+                  ordering, table booking, online payment, event management, and
+                  customer service. Additionally, registered users have complete
+                  access to the menu, enabling them to view available tables and
+                  track the status of their meal preparation. On the
+                  administrative side, the administrator has full control over
+                  personnel management, menu adjustments, and inventory control.
+                  The system administrator can efficiently add, remove, or
+                  update components as necessary.
+                </p>
               </ul>
-              <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                aute irure dolor in reprehenderit in voluptate velit esse cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum
-              </p>
             </div>
           </div>
         </div>

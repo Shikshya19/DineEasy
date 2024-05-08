@@ -23,6 +23,11 @@ export default function TableReservation() {
       navigate("/onlineOrder");
     });
   };
+  const handleUnBook = (tableId) => {
+    myAxios.delete("/api/booking/" + tableId).then(() => {
+      fetchTables();
+    });
+  };
   useEffect(() => {
     fetchTables();
   }, []);
@@ -31,7 +36,12 @@ export default function TableReservation() {
       <h1 className="centerText">Table Reservation</h1>
       <div className="row d-flex justify-content-center">
         {tables?.map((table, idx) => (
-          <TableCard table={table} key={idx} handleBook={handleBook} />
+          <TableCard
+            table={table}
+            key={idx}
+            handleBook={handleBook}
+            handleUnBook={handleUnBook}
+          />
         ))}
       </div>
     </>

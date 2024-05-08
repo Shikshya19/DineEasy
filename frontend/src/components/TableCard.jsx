@@ -1,4 +1,9 @@
-export default function TableCard({ table, handleBook }) {
+import { useContext } from "react";
+import { AuthContext } from "../store/authContext";
+import constants from "../constants";
+
+export default function TableCard({ table, handleBook, handleUnBook }) {
+  const { user } = useContext(AuthContext);
   return (
     <div className="table-card col-md-3 m-2 p-3 ">
       <h3 className="h5 my-2">
@@ -11,16 +16,27 @@ export default function TableCard({ table, handleBook }) {
       </p>
       <div className="d-flex justify-content-between">
         <p className="mb-1">Status: {table.booked ? "Booked" : "Available"}</p>
-        {!table.booked && (
-          <div>
-            <button
-              className="btn btn-primary float-end"
-              onClick={() => handleBook(table._id)}
-            >
-              <i className="fa-solid fa-file-circle-plus me-1"></i>Book
-            </button>
-          </div>
-        )}
+        {table.booked
+          ? user.role === constants.user.roles.ADMIN && (
+              <div>
+                <button
+                  className="btn btn-secondary float-end"
+                  onClick={() => handleUnBook(table._id)}
+                >
+                  <i className="fa-solid fa-file-circle-minus me-1"></i>Unbook
+                </button>
+              </div>
+            )
+          : user.role === constants.user.roles.CUSTOMER && (
+              <div>
+                <button
+                  className="btn btn-primary float-end"
+                  onClick={() => handleBook(table._id)}
+                >
+                  <i className="fa-solid fa-file-circle-plus me-1"></i>Book
+                </button>
+              </div>
+            )}
       </div>
     </div>
   );

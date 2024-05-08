@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 export default function ManageTables() {
   const [loading, setLoading] = useState(true);
-  const [tables, setTables] = useState(null);
+  const [tables, setTables] = useState([]);
   const { myAxios } = useContext(AuthContext);
   const [addData, setAddData] = useState({
     name: "",
@@ -41,6 +41,20 @@ export default function ManageTables() {
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
   };
+  const handleDelete = (_id) => {
+    const confirm = window.confirm("Are you sure want to delete?");
+    if (confirm) {
+      setLoading(true);
+      myAxios
+        .delete("/api/table/" + _id)
+        .then((response) => {
+          toast.success("Deleted successfully");
+          fetchTables();
+        })
+        .catch(() => setLoading(false));
+    }
+  };
+
   useEffect(() => {
     fetchTables();
   }, []);
@@ -84,14 +98,62 @@ export default function ManageTables() {
           </form>
         </div>
       </div>
-      <div className="row mb-3">
-        {/* Tables list */}
+      {/* <div className="row mb-3">
         <div className="tables col-md-6 m-auto text-center">
           {tables?.map((table, idx) => (
             <div key={idx}>
               {table.name}: {table.seatCapacity}
             </div>
           ))}
+        </div>
+      </div> */}
+
+      <div className="row mb-3">
+        <div className="col-md-8 m-auto">
+          <h3 className="text-center">Tables List</h3>
+          <table className="table">
+            <thead className="thead-dark">
+              <tr>
+                <th scope="col">Table name</th>
+                <th scope="col">Seat capacity</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tables.map((table) => (
+                <tr key={table._id}>
+                  <td>{table.name}</td>
+                  <td>{table.seatCapacity}</td>
+                  <td>
+                    <button
+                      className="btn btn-danger mx-2"
+                      onClick={() => handleDelete(table._id)}
+                      disabled={loading}
+                    >
+                      Delete
+                    </button>
+                    <button
+                      className="btn btn-primary mx-2"
+                      onClick={() => {
+                        setEditData({
+                          _id: staff._id,
+                          fullname: staff.user.fullname,
+                          username: staff.user.username,
+                          email: staff.user.email,
+                          phone: staff.user.phone,
+                          post: staff.post,
+                        });
+                        setShowModal(true);
+                      }}
+                      disabled={loading}
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

@@ -67,6 +67,7 @@ exports.addStaff = async (req, res) => {
   }
 };
 exports.deleteStaff = async (req, res) => {
+  console.log(req.params);
   try {
     const staff = await Staff.findById(req.params.id);
     if (!staff) {
@@ -80,6 +81,7 @@ exports.deleteStaff = async (req, res) => {
   }
 };
 exports.updateStaff = async (req, res) => {
+  console.log(req.params.id);
   try {
     const staff = await Staff.findById(req.params.id);
     if (!staff) {
@@ -121,6 +123,7 @@ exports.updateStaff = async (req, res) => {
       staff: staffUpdated,
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: "Failed to update staff" });
   }
 };

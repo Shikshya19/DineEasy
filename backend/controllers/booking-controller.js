@@ -16,6 +16,14 @@ exports.bookTable = async (req, res) => {
     event,
   });
   return res
-    .status(201)
+    .status(200)
     .json({ message: "Table booked successfully", newBooking });
+};
+
+exports.unbookTable = async (req, res) => {
+  const { id } = req.params;
+  const unbooked = await TableBooking.deleteMany({ table: id });
+  if (!unbooked) return res.status(404).json({ message: "Table not found" });
+
+  return res.status(200).json({ message: "Unbooked successfully", unbooked });
 };

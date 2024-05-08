@@ -42,3 +42,14 @@ exports.getTables = async (req, res) => {
   ]);
   res.status(200).json(tables);
 };
+
+exports.deleteTable = async (req, res) => {
+  const { id } = req.params;
+  const deletedTable = await Table.findByIdAndDelete(id);
+  if (!deletedTable)
+    return res.status(404).json({ message: "Table not found" });
+
+  return res
+    .status(200)
+    .json({ message: "Table deleted successfully", deletedTable });
+};

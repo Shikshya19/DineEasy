@@ -17,6 +17,14 @@ const orderSchema = new mongoose.Schema({
     type: Number,
     require: true,
   },
+  prepared: {
+    type: Boolean,
+    default: false,
+  },
+  delivered: {
+    type: Boolean,
+    default: false,
+  },
   paid: {
     type: Boolean,
     default: false,

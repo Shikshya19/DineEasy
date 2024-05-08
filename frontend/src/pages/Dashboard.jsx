@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../store/authContext";
+import constants from "../constants";
 
 export default function Dashboard() {
   const { user } = useContext(AuthContext);
-  if (user?.role === "Admin") {
+  if (user?.role === constants.user.roles.ADMIN) {
     return <Navigate to="/admin/dashboard" />;
+  } else if (user?.role === constants.user.roles.STAFF) {
+    return <Navigate to="/staff/dashboard" />;
   }
 
   const navigate = useNavigate();

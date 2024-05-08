@@ -1,10 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const { verifyToken } = require("../middlewares/auth.middlewares");
+const { verifyToken, isAdmin } = require("../middlewares/auth.middlewares");
 const orderController = require("../controllers/order-controller");
 
-router.route("/").post(verifyToken, orderController.addOrder);
+router
+  .route("/")
+  .post(verifyToken, orderController.addOrder)
+  .get(verifyToken, orderController.getOrders);
 router.route("/:id").delete(verifyToken, orderController.removeItem);
+router
+  .route("/mark-prepared/:orderId")
+  .patch(verifyToken, orderController.markPrepared);
+router
+  .route("/mark-delivered/:orderId")
+  .patch(verifyToken, orderController.markDelivered);
 router.route("/my-orders").get(verifyToken, orderController.getMyOrder);
 
 module.exports = router;

@@ -13,9 +13,7 @@ const EventManagement = () => {
 
         <div className="event-management-content">
           <div className="event-management-item">
-            <div className="event-management-item-image">
-              <img src="assets/img/specials-1.png" alt="Birthday" />
-            </div>
+            <div className="event-management-item-image"></div>
             <div className="event-management-item-details">
               <h3 className="event-management-item-title">Birthdays</h3>
               <p className="event-management-item-description">
@@ -34,9 +32,7 @@ const EventManagement = () => {
           </div>
 
           <div className="event-management-item">
-            <div className="event-management-item-image">
-              <img src="assets/img/specials-2.png" alt="Private Party" />
-            </div>
+            <div className="event-management-item-image"></div>
             <div className="event-management-item-details">
               <h3 className="event-management-item-title">Private Party</h3>
               <p className="event-management-item-description">
@@ -55,16 +51,14 @@ const EventManagement = () => {
           </div>
 
           <div className="event-management-item">
-            <div className="event-management-item-image">
-              <img src="assets/img/specials-3.png" alt="Weddings" />
-            </div>
+            <div className="event-management-item-image"></div>
             <div className="event-management-item-details">
               <h3 className="event-management-item-title">Weddings</h3>
               <p className="event-management-item-description">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero
                 perferendis nulla dolor quasi, suscipit deleniti voluptate
-                debitis nemo, id nisi, sed similique voluptatibus inventore quis
-                adipisci at beatae numquam provident.
+                debitis nemo, id nisi, sed s9imilique voluptatibus inventore
+                quis adipisci at beatae numquam provident.
               </p>
               <button
                 className="event-management-item-button"
@@ -76,9 +70,7 @@ const EventManagement = () => {
           </div>
 
           <div className="event-management-item">
-            <div className="event-management-item-image">
-              <img src="assets/img/specials-4.png" alt="Tender" />
-            </div>
+            <div className="event-management-item-image"></div>
             <div className="event-management-item-details">
               <h3 className="event-management-item-title">Tender</h3>
               <p className="event-management-item-description">
@@ -97,9 +89,7 @@ const EventManagement = () => {
           </div>
 
           <div className="event-management-item">
-            <div className="event-management-item-image">
-              <img src="assets/img/specials-5.png" alt="Special" />
-            </div>
+            <div className="event-management-item-image"></div>
             <div className="event-management-item-details">
               <h3 className="event-management-item-title">Special</h3>
               <p className="event-management-item-description">
