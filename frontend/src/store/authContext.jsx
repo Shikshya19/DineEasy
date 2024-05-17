@@ -11,21 +11,22 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const login = ({ email, password }) => {
-    setLoading(true);
+    // setLoading(true);
     axios
       .post("/api/auth/login", { email, password })
       .then((response) => {
-        console.log(response);
-        toast.success(response.data.message);
         setToken(response.data.token);
+        setTimeout(() => {
+          toast.success(response.data.message);
+        }, 500);
       })
       .catch((error) => {
         console.log("The error is: ", error);
         toast.error(error.response?.data.msg);
-      })
-      .finally(() => {
-        setLoading(false);
       });
+    // .finally(() => {
+    //   setLoading(false);
+    // });
   };
   const logout = () => {
     setToken(null);
@@ -58,7 +59,9 @@ export const AuthProvider = ({ children }) => {
     }
   }, [token]);
   return (
-    <AuthContext.Provider value={{ login, logout, user, myAxios }}>
+    <AuthContext.Provider
+      value={{ login, logout, user, setToken, myAxios, fetchUser }}
+    >
       {loading ? "Loading..." : children}
     </AuthContext.Provider>
   );

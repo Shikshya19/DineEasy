@@ -2,10 +2,13 @@ import { useContext, useState } from "react";
 import backgroundImg from "../assets/backgrounds/restaurant-background.jpg";
 import { Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../store/authContext";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 export default function Register() {
   const navigate = useNavigate();
-  const { login, user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
+  const { user } = useContext(AuthContext);
   if (user) return <Navigate to="/" />;
 
   const [registerData, setRegisterData] = useState({
@@ -17,25 +20,18 @@ export default function Register() {
   });
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch("http://localhost:8000/api/auth/register", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(registerData),
-      });
-
-      console.log(response);
-      if (response.ok) {
-        alert("Registration successful");
-        navigate("/login");
-      } else {
-        alert("Registration failed");
-      }
-    } catch (error) {
-      console.log(error.data);
-    }
+    setLoading(true);
+    axios
+      .post("/api/auth/register", registerData)
+      .then((res) => {
+        toast.success(res.data.message);
+        console.log(`/verify-otp/${registerData.email}`);
+        navigate(`/verify-otp/${registerData.email}`);
+      })
+      .catch((err) =>
+        toast.error(err.response?.data.msg || "Something went wrong")
+      )
+      .finally(() => setLoading(false));
   };
   const handleChange = (e) => {
     setRegisterData({ ...registerData, [e.target.name]: e.target.value });
@@ -112,7 +108,12 @@ export default function Register() {
             <label htmlFor="floatingInput">Password</label>
           </div>
           <div className="d-flex justify-content-center mb-2">
-            <button type="submit" role="button" className="btn w-50">
+            <button
+              type="submit"
+              role="button"
+              className="btn w-50"
+              disabled={loading}
+            >
               Register
             </button>
           </div>

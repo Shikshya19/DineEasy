@@ -17,10 +17,12 @@ const EventManagement = () => {
             <div className="event-management-item-details">
               <h3 className="event-management-item-title">Birthdays</h3>
               <p className="event-management-item-description">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Similique exercitationem aperiam quam? Tempora, sequi tempore.
-                Eaque, harum illo. Dolorum soluta asperiores eligendi id
-                corrupti voluptate, reprehenderit animi nisi ratione ipsam!
+                DineEasy includes a dedicated birthday event management feature,
+                making party planning a breeze. Easily organize guest lists,
+                send out invites, choose the perfect venue, and coordinate with
+                vendors right from your phone. Whether it's a small gathering or
+                a big celebration, our feature ensures every detail is taken
+                care of, so you can focus on creating unforgettable memories.
               </p>
               <button
                 className="event-management-item-button"
@@ -36,10 +38,14 @@ const EventManagement = () => {
             <div className="event-management-item-details">
               <h3 className="event-management-item-title">Private Party</h3>
               <p className="event-management-item-description">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam
-                exercitationem consequatur doloremque? Quia a culpa cupiditate
-                distinctio blanditiis consequatur illo, sit magni, fugiat quo
-                ducimus repellat quae. Voluptate, accusantium sequi!
+                EasyDine has exclusive private party booking feature! Seamlessly
+                reserve your own private event space within our app for an
+                unforgettable gathering. Whether it's a birthday celebration,
+                anniversary party, or special reunion, easily browse and book
+                venues, customize packages, and coordinate details with our
+                intuitive platform. Elevate your event experience with our
+                private party feature reserve your spot today and create
+                cherished memories with ease.
               </p>
               <button
                 className="event-management-item-button"
@@ -55,10 +61,13 @@ const EventManagement = () => {
             <div className="event-management-item-details">
               <h3 className="event-management-item-title">Weddings</h3>
               <p className="event-management-item-description">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero
-                perferendis nulla dolor quasi, suscipit deleniti voluptate
-                debitis nemo, id nisi, sed s9imilique voluptatibus inventore
-                quis adipisci at beatae numquam provident.
+                Discover an unparalleled wedding event management service at
+                DineEasy, where our dedicated team of planners brings your dream
+                wedding to life with precision and creativity. From intimate
+                gatherings to grand celebrations, we meticulously handle every
+                detail, including venue selection, decor, catering, and
+                entertainment, ensuring a flawless experience tailored to your
+                unique style and budget.
               </p>
               <button
                 className="event-management-item-button"
@@ -72,31 +81,14 @@ const EventManagement = () => {
           <div className="event-management-item">
             <div className="event-management-item-image"></div>
             <div className="event-management-item-details">
-              <h3 className="event-management-item-title">Tender</h3>
-              <p className="event-management-item-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. At,
-                ipsam fugiat non quidem dolorem esse! Deserunt, ea nulla ipsa
-                sunt molestias voluptatibus cumque, quia dicta voluptatum
-                recusandae doloribus veritatis numquam.
-              </p>
-              <button
-                className="event-management-item-button"
-                onClick={() => navigate("/tableReservation")}
-              >
-                Book for Tender
-              </button>
-            </div>
-          </div>
-
-          <div className="event-management-item">
-            <div className="event-management-item-image"></div>
-            <div className="event-management-item-details">
               <h3 className="event-management-item-title">Special</h3>
               <p className="event-management-item-description">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Possimus adipisci mollitia quod minus, impedit rerum fugit fuga
-                autem eos cum sed commodi quas odio, harum esse illum sit nisi
-                earum?
+                Introducing our Special Occasion Booking feature! Easily plan
+                milestone events like birthdays and anniversaries with tailored
+                experiences. Browse venues, customize packages, and coordinate
+                details seamlessly within our app. From romantic dinners to
+                family reunions, make every occasion unforgettable. Start
+                planning your next special event today!
               </p>
               <button
                 className="event-management-item-button"

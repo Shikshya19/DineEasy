@@ -5,6 +5,7 @@
     --color4: #c1b282;
     --color5: #d1c999;
 }
+
 .form-container {
     width: 400px;
     /* background-color: var(--color1); */
@@ -60,19 +61,10 @@
     }
   }
 
-/* .table{
-    display: flex;
-}
-
-.table-card {
-    background-color: rgb(236, 236, 236);
-    border-radius: 10px;
-} */
 
 
-
-.aboutus {
-    background: url("assets\img\about-bg.jpg") center center;
+  .aboutus {
+    background: url("assets/img/about-bg.jpg") center center;
     background-size: cover;
     position: relative;
     padding: 80px 0;
@@ -88,18 +80,19 @@
     right: 0;
   }
   
-  
-  
   .aboutus .content {
     position: relative;
+    z-index: 1; /* Ensure content is above the overlay */
+    text-align: center; /* Center content horizontally */
+    color: #fff; /* Text color */
   }
   
   .aboutus .content h3 {
     font-weight: 600;
     font-size: 26px;
+    margin-bottom: 20px; /* Add some space below the heading */
   }
   
-
   
   @media (min-width: 1024px) {
     .aboutus {
@@ -107,97 +100,6 @@
     }
   }
 
-  .menu #menu-flters {
-    padding: 0;
-    margin: 0 auto 0 auto;
-    list-style: none;
-    text-align: center;
-    border-radius: 50px;
-  }
-  
-  .menu #menu-flters li {
-    cursor: pointer;
-    display: inline-block;
-    padding: 8px 12px 10px 12px;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1;
-    color: #fff;
-    margin-bottom: 10px;
-    transition: all ease-in-out 0.3s;
-    border-radius: 50px;
-    font-family: "Playfair Display", serif;
-  }
-  
-  .menu #menu-flters li:hover,
-  .menu #menu-flters li.filter-active {
-    color: #cda45e;
-  }
-  
-  .menu #menu-flters li:last-child {
-    margin-right: 0;
-  }
-  
-  .menu .menu-item {
-    margin-top: 50px;
-  }
-  
-  .menu .menu-img {
-    width: 70px;
-    border-radius: 50%;
-    float: left;
-    border: 5px solid rgba(255, 255, 255, 0.2);
-  }
-  
-  .menu .menu-content {
-    margin-left: 85px;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-  }
-  
-  .menu .menu-content::after {
-    content: "......................................................................" "...................................................................." "....................................................................";
-    position: absolute;
-    left: 20px;
-    right: 0;
-    top: -4px;
-    z-index: 1;
-    color: #bab3a6;
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  }
-  
-  .menu .menu-content a {
-    padding-right: 10px;
-    background: #1a1814;
-    position: relative;
-    z-index: 3;
-    font-weight: 700;
-    color: white;
-    transition: 0.3s;
-  }
-  
-  .menu .menu-content a:hover {
-    color: #cda45e;
-  }
-  
-  .menu .menu-content span {
-    background: #1a1814;
-    position: relative;
-    z-index: 3;
-    padding: 0 10px;
-    font-weight: 600;
-    color: #cda45e;
-  }
-  
-  .menu .menu-ingredients {
-    margin-left: 85px;
-    font-style: italic;
-    font-size: 14px;
-    font-family: "Poppins", sans-serif;
-    color: rgba(255, 255, 255, 0.5);
-  }
 
 
   #home {
@@ -316,13 +218,109 @@
       opacity: 0;
     }
   }
-  .online-order {
-    position: relative;
-    padding: 1px;
-  }
+ /* Online Order Container */
+.online-order-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
+/* Online Order Title */
+.online-order-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-  
+/* Online Order Content */
+.online-order-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Online Order Menu */
+.online-order-menu {
+  flex: 1;
+  margin-right: 20px;
+}
+
+/* Online Order Menu Title */
+.online-order-menu-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Online Order Menu Items */
+.online-order-menu-items {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Online Order Order */
+.online-order-order {
+  flex: 1;
+}
+
+/* Online Order Order Title */
+.online-order-order-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Online Order Order Items */
+.online-order-order-items {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+/* Online Order Order Empty */
+.online-order-order-empty {
+  text-align: center;
+  font-style: italic;
+}
+
+/* Online Order Order Total */
+.online-order-order-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Online Order Order Total Label */
+.online-order-order-total-label {
+  font-weight: bold;
+}
+
+/* Online Order Order Total Amount */
+.online-order-order-total-amount {
+  font-weight: bold;
+}
+
+/* Online Order Order Button */
+.online-order-order-button {
+  background-color: #cda45e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Online Order Order Button Hover */
+.online-order-order-button:hover {
+  background-color: #b3883b;
+}
+
 
   .dashboard-container {
     display: flex;
@@ -489,10 +487,6 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('../assets/backgrounds/restaurant-background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
   }
   
   .login-form-container {
@@ -731,3 +725,7 @@
   .online-order-order-button:hover {
     background-color: #0056b3;
   }
+
+
+
+  

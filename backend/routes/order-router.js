@@ -7,13 +7,17 @@ router
   .route("/")
   .post(verifyToken, orderController.addOrder)
   .get(verifyToken, orderController.getOrders);
+
+router.route("/my-orders").get(verifyToken, orderController.getMyOrders);
+
 router.route("/:id").delete(verifyToken, orderController.removeItem);
+
 router
   .route("/mark-prepared/:orderId")
   .patch(verifyToken, orderController.markPrepared);
+
 router
   .route("/mark-delivered/:orderId")
   .patch(verifyToken, orderController.markDelivered);
-router.route("/my-orders").get(verifyToken, orderController.getMyOrder);
 
 module.exports = router;

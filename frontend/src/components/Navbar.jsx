@@ -51,7 +51,9 @@ export default function Navbar() {
                   </button>
                 </li>
                 <li className="nav-item bg-success">
-                  <NavLink className="nav-link">{user.fullname}</NavLink>
+                  <NavLink to="edit-profile" className="nav-link">
+                    {user.fullname}
+                  </NavLink>
                 </li>
               </>
             ) : (

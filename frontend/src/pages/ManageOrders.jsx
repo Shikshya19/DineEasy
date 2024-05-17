@@ -7,6 +7,7 @@ export default function ManageOrders() {
   const fetchOrders = () => {
     myAxios.get("/api/orders").then((res) => {
       setOrders(res.data);
+      console.log(res.data);
     });
   };
 
@@ -35,7 +36,11 @@ export default function ManageOrders() {
                 {orders.map((order) => (
                   <tr key={order._id}>
                     <td>{order.user.fullname}</td>
-                    <td>{order.orderItem.itemName}</td>
+                    <td>
+                      {order.orderItems.reduce(
+                        (acc, item) => acc + item.itemName
+                      )}
+                    </td>
                     <td>{order.quantity}</td>
                     <td>Rs.{order.total}</td>
                   </tr>

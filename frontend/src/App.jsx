@@ -20,7 +20,11 @@ import EventManagement from "./pages/EventManagement";
 import ManageOrders from "./pages/ManageOrders";
 import AddStaff from "./pages/AddStaff";
 import StaffDashboard from "./pages/StaffDashboard";
+import CustomerCare from "./pages/CustomerCare";
 import StaffOrderManagement from "./pages/StaffOrderManagement";
+import EditProfile from "./pages/EditProfile";
+import VerifyOtp from "./pages/VerifyOtp";
+import MyOrders from "./pages/MyOrders";
 
 function App() {
   return (
@@ -31,12 +35,17 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
+          <Route path="/verify-otp/:email" element={<VerifyOtp />}></Route>
           <Route path="/aboutUs" element={<AboutUs />}></Route>
 
           {/* Logged in routes */}
           <Route
             path="/dashboard"
             element={<PrivateRoute element={<Dashboard />} />}
+          ></Route>
+          <Route
+            path="/edit-profile"
+            element={<PrivateRoute element={<EditProfile />} />}
           ></Route>
 
           {/* Customer only routes */}
@@ -51,6 +60,10 @@ function App() {
           <Route
             path="/tablereservation"
             element={<OnlyCustomer element={<TableReservation />} />}
+          ></Route>
+          <Route
+            path="/my-orders"
+            element={<OnlyCustomer element={<MyOrders />} />}
           ></Route>
 
           {/* Staff routes */}
@@ -91,6 +104,10 @@ function App() {
           <Route
             path="/admin/tablereservation"
             element={<AdminRoute element={<TableReservation />} />}
+          ></Route>
+          <Route
+            path="/customercare"
+            element={<OnlyCustomer element={<CustomerCare />} />}
           ></Route>
         </Routes>
       </BrowserRouter>

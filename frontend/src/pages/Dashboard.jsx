@@ -64,8 +64,11 @@ export default function Dashboard() {
 
         <section className="dashboard-section">
           <div className="dashboard-item">
-            <div className="dashboard-item-content">
-              <button className="dashboard-item-button">Customer Care</button>
+            <div
+              className="dashboard-item-content"
+              onClick={() => navigate("/customercare")}
+            >
+              <span className="dashboard-item-label">Customer Care</span>
             </div>
           </div>
         </section>

@@ -43,6 +43,7 @@ exports.addStaff = async (req, res) => {
       phone,
       password,
       role: "Staff",
+      verified: true,
     });
     const newUser = await User.findById(userCreated._id, "-password");
     if (!newUser) return res.status(500).json({ msg: "Failed to create user" });

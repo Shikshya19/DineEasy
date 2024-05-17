@@ -7,6 +7,7 @@ export default function TableReservation() {
   const [tables, setTables] = useState(null);
   const navigate = useNavigate();
   const { myAxios } = useContext(AuthContext);
+
   const fetchTables = () => {
     // setLoading(true);
     myAxios
@@ -17,12 +18,14 @@ export default function TableReservation() {
       .catch((error) => console.log(error));
     //   .finally(() => setLoading(false));
   };
+
   const handleBook = (tableId) => {
     myAxios.post("/api/booking/", { tableId }).finally(() => {
       fetchTables();
       navigate("/onlineOrder");
     });
   };
+
   const handleUnBook = (tableId) => {
     myAxios.delete("/api/booking/" + tableId).then(() => {
       fetchTables();
@@ -31,6 +34,7 @@ export default function TableReservation() {
   useEffect(() => {
     fetchTables();
   }, []);
+
   return (
     <>
       <h1 className="centerText">Table Reservation</h1>

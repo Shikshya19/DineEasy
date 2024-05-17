@@ -29,6 +29,7 @@ const userSchema = new mongoose.Schema({
     default: "Customer",
     enum: ["Admin", "Staff", "Customer"],
   },
+  verified: { type: Boolean, default: false },
 });
 
 userSchema.pre("save", async function (next) {

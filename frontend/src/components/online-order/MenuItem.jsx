@@ -16,10 +16,7 @@ export default function MenuItem({ item, handleAdd }) {
           <h2 className="m-0 h5">{item.itemName}</h2>
           <h3 className="m-0 h6">Rs.{item.price}</h3>
           <div className="d-flex justify-content-end">
-            <button
-              className="btn btn-primary"
-              onClick={() => handleAdd(item._id)}
-            >
+            <button className="btn btn-primary" onClick={() => handleAdd(item)}>
               Add
             </button>
           </div>

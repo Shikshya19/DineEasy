@@ -53,7 +53,11 @@ export default function StaffOrderManagement() {
                   <th scope="col">Customer</th>
                   <th scope="col">Item</th>
                   <th scope="col">Quantity</th>
-                  <th scope="col">Actions</th>
+                  {user.staffPost !== constants.staff.posts.CASHIER ? (
+                    <th scope="col">Actions</th>
+                  ) : (
+                    <th scope="col">Paid</th>
+                  )}
                 </tr>
               </thead>
               <tbody>
@@ -78,6 +82,9 @@ export default function StaffOrderManagement() {
                         >
                           Mark Delivered
                         </button>
+                      )}
+                      {user.staffPost === constants.staff.posts.CASHIER && (
+                        <td>{order.paid ? "Yes" : "No"}</td>
                       )}
                     </td>
                   </tr>
