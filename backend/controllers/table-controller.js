@@ -34,6 +34,13 @@ exports.getTables = async (req, res) => {
             else: false,
           },
         },
+        bookedFor: {
+          $cond: {
+            if: { $gt: [{ $size: "$bookings" }, 0] },
+            then: { $arrayElemAt: ["$bookings.event", 0] }, // Get the event field from the first booking
+            else: "Regular", // If there are no bookings, set bookedFor to null
+          },
+        },
       },
     },
     {

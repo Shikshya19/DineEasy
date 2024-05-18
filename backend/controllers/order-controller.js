@@ -83,7 +83,6 @@ exports.getOrders = async (req, res) => {
     if (user.role === constants.user.roles.STAFF) {
       const staff = await Staff.findOne({ user: user._id });
       if (!staff) return res.status(404).json({ msg: "No such staff" });
-
       switch (staff.post) {
         case constants.staff.posts.CHEF:
           orders = await Order.find({

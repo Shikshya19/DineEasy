@@ -33,6 +33,7 @@ export default function MyOrders() {
               style={{ backgroundColor: "#f0f2dd" }}
             >
               <h3 className="h5">Order ID: {order._id}</h3>
+              <p>{new Date(order.createdAt).toDateString()}</p>
               <div className="my-3">
                 {order.orderItems.map((item) => (
                   <OrderItem key={item._id} item={item} />
@@ -40,15 +41,19 @@ export default function MyOrders() {
               </div>
               <div className="d-flex justify-content-end gap-4">
                 <p className="m-0">
-                  Status:{" "}
-                  {order.prepared
-                    ? order.delivered
-                      ? "Delivered"
-                      : "Prepared"
-                    : "Preparing"}
+                  Status:&nbsp;
+                  {order.prepared ? (
+                    order.delivered ? (
+                      <span className="badge bg-success">Delivered</span>
+                    ) : (
+                      <span className="badge bg-primary">Prepared</span>
+                    )
+                  ) : (
+                    <span className="badge bg-secondary">Preparing</span>
+                  )}
                 </p>
                 <p className="m-0">
-                  Payment:{" "}
+                  Payment:&nbsp;
                   {order.paid ? (
                     <span className="text-bg-success rounded-2 p-1">Paid</span>
                   ) : (

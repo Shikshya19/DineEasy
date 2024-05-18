@@ -1,3 +1,4 @@
+const constants = require("../constants");
 const TableBooking = require("../models/table-booking");
 
 exports.bookTable = async (req, res) => {
@@ -22,6 +23,12 @@ exports.bookTable = async (req, res) => {
 
 exports.unbookTable = async (req, res) => {
   const { id } = req.params;
+  if (
+    req.user.role != constants.user.roles.ADMIN ||
+    req.user.role != constants.user.roles.STAFF
+  )
+    return res.status(403).json({ message: "Unauthorized request" });
+
   const unbooked = await TableBooking.deleteMany({ table: id });
   if (!unbooked) return res.status(404).json({ message: "Table not found" });
 

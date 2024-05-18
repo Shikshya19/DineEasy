@@ -4,26 +4,27 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../store/authContext";
 
 export default function TableReservation() {
+  const params = new URLSearchParams(window.location.search);
   const [tables, setTables] = useState(null);
   const navigate = useNavigate();
   const { myAxios } = useContext(AuthContext);
 
   const fetchTables = () => {
-    // setLoading(true);
     myAxios
       .get("/api/table")
       .then((response) => {
         setTables(response.data);
       })
       .catch((error) => console.log(error));
-    //   .finally(() => setLoading(false));
   };
 
   const handleBook = (tableId) => {
-    myAxios.post("/api/booking/", { tableId }).finally(() => {
-      fetchTables();
-      navigate("/onlineOrder");
-    });
+    myAxios
+      .post("/api/booking/", { tableId, event: params.get("event") })
+      .finally(() => {
+        fetchTables();
+        navigate("/onlineOrder");
+      });
   };
 
   const handleUnBook = (tableId) => {
@@ -31,6 +32,7 @@ export default function TableReservation() {
       fetchTables();
     });
   };
+
   useEffect(() => {
     fetchTables();
   }, []);

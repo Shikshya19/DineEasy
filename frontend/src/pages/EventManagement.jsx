@@ -26,7 +26,7 @@ const EventManagement = () => {
               </p>
               <button
                 className="event-management-item-button"
-                onClick={() => navigate("/tableReservation")}
+                onClick={() => navigate("/tableReservation?event=birthday")}
               >
                 Book for Birthday
               </button>
@@ -49,7 +49,9 @@ const EventManagement = () => {
               </p>
               <button
                 className="event-management-item-button"
-                onClick={() => navigate("/tableReservation")}
+                onClick={() =>
+                  navigate("/tableReservation?event=private-party")
+                }
               >
                 Book for Private Party
               </button>
@@ -71,7 +73,7 @@ const EventManagement = () => {
               </p>
               <button
                 className="event-management-item-button"
-                onClick={() => navigate("/tableReservation")}
+                onClick={() => navigate("/tableReservation?event=wedding")}
               >
                 Book for Wedding
               </button>
@@ -92,7 +94,7 @@ const EventManagement = () => {
               </p>
               <button
                 className="event-management-item-button"
-                onClick={() => navigate("/tableReservation")}
+                onClick={() => navigate("/tableReservation?event=special")}
               >
                 Book for Special
               </button>

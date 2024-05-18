@@ -14,10 +14,18 @@ export default function TableCard({ table, handleBook, handleUnBook }) {
         <i className="fa-solid fa-person me-1"></i>Capacity:{" "}
         {table.seatCapacity}
       </p>
+      <p className="mb-1">Status: {table.booked ? "Booked" : "Available"}</p>
       <div className="d-flex justify-content-between">
-        <p className="mb-1">Status: {table.booked ? "Booked" : "Available"}</p>
+        {(user.role === constants.user.roles.ADMIN ||
+          user.role === constants.user.roles.STAFF) &&
+          table.booked && (
+            <p className="mb-1">
+              Event type: {table.bookedFor ? table.bookedFor : "Regular"}
+            </p>
+          )}
         {table.booked
-          ? user.role === constants.user.roles.ADMIN && (
+          ? (user.role === constants.user.roles.ADMIN ||
+              user.role === constants.user.roles.STAFF) && (
               <div>
                 <button
                   className="btn btn-secondary float-end"

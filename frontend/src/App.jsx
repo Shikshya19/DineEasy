@@ -21,7 +21,7 @@ import ManageOrders from "./pages/ManageOrders";
 import AddStaff from "./pages/AddStaff";
 import StaffDashboard from "./pages/StaffDashboard";
 import CustomerCare from "./pages/CustomerCare";
-import StaffOrderManagement from "./pages/StaffOrderManagement";
+import StaffOrderManagement from "./pages/staff/StaffOrderManagement";
 import EditProfile from "./pages/EditProfile";
 import VerifyOtp from "./pages/VerifyOtp";
 import MyOrders from "./pages/MyOrders";
@@ -74,6 +74,10 @@ function App() {
           <Route
             path="/staff/manage-orders"
             element={<OnlyStaff element={<StaffOrderManagement />} />}
+          ></Route>
+          <Route
+            path="/staff/manage-reservation"
+            element={<OnlyStaff element={<TableReservation />} />}
           ></Route>
 
           {/* Admin routes */}

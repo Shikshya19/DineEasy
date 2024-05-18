@@ -7,7 +7,9 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <h2>DineEasy</h2>
+        <Link to="/" className="nav-brand h3 text-decoration-none">
+          DineEasy
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -27,6 +29,17 @@ export default function Navbar() {
                 Home
               </NavLink>
             </li>
+            {user?.role === "Customer" && (
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link"
+                  aria-current="page"
+                  to="/my-orders"
+                >
+                  My Orders
+                </NavLink>
+              </li>
+            )}
             <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to="/AboutUs">
                 About Us

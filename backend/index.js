@@ -10,6 +10,7 @@ const tableRoute = require("./routes/table-router");
 const bookingRoute = require("./routes/booking-router");
 const menuRoute = require("./routes/menu-router");
 const orderRoute = require("./routes/order-router");
+const messageRoute = require("./routes/message-router");
 const connectDb = require("./utils/db");
 
 const PORT = process.env.PORT;
@@ -25,6 +26,7 @@ app.use("/api/table", tableRoute);
 app.use("/api/menu", menuRoute);
 app.use("/api/staffs", staffRoute);
 app.use("/api/orders", orderRoute);
+app.use("/api/message", messageRoute);
 
 connectDb().then(() => {
   app.listen(PORT, () => {

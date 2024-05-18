@@ -11,14 +11,6 @@ const tableBooking = new mongoose.Schema({
   },
   event: {
     type: String,
-    enum: [
-      "Birthday",
-      "Private Party",
-      "Weddings",
-      "Tendor",
-      "Special",
-      "Regular",
-    ],
     default: "Regular",
   },
 });
